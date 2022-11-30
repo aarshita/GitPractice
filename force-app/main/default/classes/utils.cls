@@ -1,4 +1,6 @@
 public with sharing class utils {
+   
+    //Adding comment to get this on git
     
     public static final string monDay = 'Monday__c';
     public static final string tuedayDay = 'Tuesday__c';
