@@ -1,5 +1,5 @@
 public class AssociateContract {
-    
+    // Adding a comment here.
     public static void WorkingPattrenMethodInsert(List<Contract__c> contractList){
         
         
