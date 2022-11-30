@@ -1,0 +1,75 @@
+<template>
+    
+    <lightning-card title="Using LWC">
+        <div class="slds-p-around_medium">
+            <lightning-combobox name=" Select Object" 
+                                 label="Select Object" 
+                                 value="In Progress" 
+                                 placeholder="Select Object" 
+                                 options={ObjectList} 
+                                 onchange={handleFieldChange}></lightning-combobox>
+             </div>
+
+             <div class="slds-p-around_medium">
+                <lightning-dual-listbox name="Fields" label= "Choose Fields" selected-label="Selected"    source-label="Available" field-level-help="Select your Fields" options={fields} value={values} onchange={handleSelectChange} size="7"
+                ></lightning-dual-listbox>
+            </div>
+
+            <div class="slds-p-around_medium">
+                <lightning-button variant="brand" label="Generate Query" title="Brand action" onclick={genrateFieldQuery} ></lightning-button>
+            </div>
+
+            <div class = "slds-box">
+                <div class="row slds-box">
+                    <lightning-textarea name="QueryArea" value= {FieldQuery}></lightning-textarea>
+                </div >
+                 <div class="slds-p-top_medium">
+                <lightning-button variant="brand" label="Fetch Record" title="Brand action" onclick={fetchRecord} ></lightning-button>
+                 </div>
+            </div> 
+
+       
+           <!-- <template if:true={areDetailsVisible}>
+                    <lightning-card>
+                  
+                    <div class="slds-box">
+                        <br/>
+                        <table class="slds-table slds-table--bordered slds-table--striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col"><span class="slds-truncate">Id</span></th>
+                                    <th scope="col"><span class="slds-truncate">Record Name</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={DataVal} for:item="Data">
+                                    <div key={Data.Id}> 
+                                    <tr>
+                                        <td>{Data.Id}</td>
+                                        <td>{Data.Name}</td>
+                                    </tr>
+                                </div>
+                               
+                               </template>
+                                
+                            </tbody>
+                            
+                        </table>
+                    </div>
+            
+            </lightning-card>
+        </template> -->
+        <template if:true={areDetailsVisible}>
+        <lightning-datatable class="slds-table slds-table_cell-buffer slds-table_bordered" aria-label="Example default base table of Opportunities"
+        key-field="Id"
+        data={DataVal}
+        columns={COLUMNS}
+        hide-checkbox-column="true"
+       >
+    </lightning-datatable>
+    </template>
+    </lightning-card>
+
+
+
+</template>

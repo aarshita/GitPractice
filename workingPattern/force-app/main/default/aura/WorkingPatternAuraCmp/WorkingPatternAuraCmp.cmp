@@ -1,0 +1,113 @@
+<aura:component controller = "tableDataForContractApex" implements="force:appHostable,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="WPList" type="Working_Pattern__c" />
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}" />
+    
+    <lightning:card iconName="standard:work_capacity_usage" title="Related Working Pattern AURA">
+        <aura:if isTrue="{!not(empty(v.WPList))}">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                     <aura:iteration  items="{!v.WPList}" var="con">
+                    <tr class="slds-line-height_reset">
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Name">Name</div>
+                        </th>
+                       <aura:if isTrue="{!not(empty(con.Monday__c))}">
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Monday">Monday</div>
+                        </th>
+                        </aura:if>
+                        <aura:if isTrue="{!not(empty(con.Tuesday__c))}">
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Tuesday">Tuesday</div>
+                        </th>
+                        </aura:if>
+                        <aura:if isTrue="{!not(empty(con.Wednesday__c))}">
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Wednesday">Wednesday</div>
+                        </th>
+                        </aura:if>
+                        <aura:if isTrue="{!not(empty(con.Thursday__c))}">
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Thursday">Thursday</div>
+                        </th>
+                        </aura:if>
+                        <aura:if isTrue="{!not(empty(con.Friday__c))}">
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Friday">Friday</div>
+                        </th>
+                        </aura:if>
+                        <aura:if isTrue="{!not(empty(con.Saturday__c))}">
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Saturday">Saturday</div>
+                        </th>
+                        </aura:if>
+                        <aura:if isTrue="{!not(empty(con.Sunday__c))}">
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Sunday">Sunday</div>
+                        </th>
+                        </aura:if>
+                         <aura:if isTrue="{!not(empty(con.Off_Day__c))}">
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Off Day">Off Day</div>
+                        </th>
+                        </aura:if>
+                    </tr>
+                    </aura:iteration>
+                </thead>
+                <tbody>
+                    <aura:iteration  items="{!v.WPList}" var="con">
+                        <tr class="slds-hint-parent">
+                            <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name">{!con.Name}</div>  
+                            </td>
+                            <aura:if isTrue="{!not(empty(con.Monday__c))}">
+                            <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name">{!con.Monday__c}/{!con.Monday_Timing__c}</div>  
+                            </td>
+                            </aura:if>
+                           <aura:if isTrue="{!not(empty(con.Tuesday__c))}">
+                            <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name">{!con.Tuesday__c}/{!con.Tuesday_Timing__c}</div>  
+                            </td>
+                            </aura:if>
+							  <aura:if isTrue="{!not(empty(con.Wednesday__c))}">                          
+                            <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name">{!con.Wednesday__c}/{!con.Wednesday_Timing__c}</div>  
+                            </td>
+                            </aura:if>
+                            <aura:if isTrue="{!not(empty(con.Thursday__c))}">
+                            <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name">{!con.Thursday__c}/{!con.Thursday_Timing__c}</div>  
+                            </td>
+                            </aura:if>
+                            <aura:if isTrue="{!not(empty(con.Friday__c))}">
+                            <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name">{!con.Friday__c}/{!con.Friday_Timing__c}</div>  
+                            </td>
+                            </aura:if>
+                            <aura:if isTrue="{!not(empty(con.Saturday__c))}">
+                            <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name">{!con.Saturday__c}/{!con.Saturday_Timing__c}</div>  
+                            </td>
+                            </aura:if>
+                            <aura:if isTrue="{!not(empty(con.Sunday__c))}">
+                            <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name">{!con.Sunday__c}/{!con.Sunday_Timing__c}</div>  
+                            </td>
+                            </aura:if>
+                            <aura:if isTrue="{!not(empty(con.Off_Day__c))}">
+                            <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name">{!con.Off_Day__c}</div>  
+                            </td>
+                            </aura:if>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+            <aura:set attribute="else">
+                <div Style="text-align : center"> " There are no related Working Pattern "</div>
+            </aura:set>
+        </aura:if>
+    </lightning:card>
+</aura:component>

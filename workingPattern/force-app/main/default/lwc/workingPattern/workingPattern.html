@@ -1,0 +1,58 @@
+<template>
+    <lightning-card title="Create Working Pattern">
+     <div   class="slds-m-around_large">
+        <lightning-record-edit-form
+        class="slds-m-around_large"
+        object-api-name={ObjectApiName}
+        onsuccess = {handleSuccess}
+        density="Compact">
+
+       
+        <lightning-input-field field-name ={CountryName} class="slds-p-around_medium"></lightning-input-field>
+        <lightning-input-field field-name ={DeliverAt} class="slds-p-around_medium"></lightning-input-field>
+        <lightning-input-field field-name ={ContractType} class="slds-p-around_medium"></lightning-input-field>
+        </lightning-record-edit-form>
+    </div> 
+    <div class="slds-m-around_large">
+    <lightning-combobox label="Leave"
+                        placeholder = "Select Day"
+                        value = {value}
+                        options = {options}
+                        onchange = {handleChange}
+
+    ></lightning-combobox>
+</div >
+
+<ul class="slds-m-around_medium">
+  <!----  <template  for:each={ListOfDays} for:item="Days">
+        <div class="slds-m-bottom_small slds-m-left_small slds-box slds-box_xx-small slds-size_1-of-6" key={Days.Id}>
+        
+        <li>
+            <div if:false={DaySelected}>  
+                {Days.Day} 
+            </div>
+        </li>
+    </div>
+    </template>-->
+    <template if:true={Monday}>
+        <div>Monday</div> 
+    </template>
+
+    <template if:true={Tuesday}>
+        <div id="Tuesday">Tuesday</div>    
+    </template>
+    
+    <template if:true={Wednesday}>
+        <div id="Wednesday">Wednesday</div> 
+    </template>
+
+    <div id="Thursday">Thursday</div> 
+    <div id="Friday">Friday</div> 
+    <div id="Saturday">Saturday</div> 
+    <div id="Sunday">Sunday</div> 
+
+
+</ul>
+
+    </lightning-card>
+</template>

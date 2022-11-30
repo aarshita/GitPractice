@@ -1,0 +1,78 @@
+<template>
+    
+   <lightning-card title="Related Working Pattern LWC"  icon-name="custom:custom11">
+    
+        <template for:each={WorkingPattrenAlias.data} for:item="WPdata">
+             <div key={WPdata.id}>
+              <div >
+                <div >
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+               <tbody class="slds-line-height_reset"> 
+                <tr class="slds-line-height_reset">
+                  <th class="" scope="col">
+                    <div><strong>Working Pattern</strong></div>
+                  </th>
+                  <th class="" scope="col">
+                    <div><strong>Monday</strong></div>
+                  </th >
+                  <th class="" scope="col" >
+                    <div><strong>Tuesday</strong></div>
+                  </th>
+                  <th class="" scope="col" >
+                    <div><strong>Wednesday</strong></div>
+                  </th>
+                  <th class="" scope="col">
+                    <div><strong>Thursday</strong></div>
+                  </th>
+                  <th class="" scope="col">
+                    <div><strong>Friday</strong></div>
+                  </th>
+                  <th class="" scope="col">
+                    <div><strong>Saturday</strong></div>
+                  </th>
+                  <th class="" scope="col">
+                    <div><strong>Sunday</strong></div>
+                  </th>
+                  <th class="" scope="col">
+                    <div><strong>Day Off</strong></div>
+                  </th>
+                </tr>
+
+                <tr class="slds-line-height_reset">
+                    <td>{WPdata.Name}</td>
+
+                    <td>{WPdata.Monday__c}/
+                      {WPdata.Monday_Timing__c}</td>
+
+                    <td>{WPdata.Tuesday__c}/
+                      {WPdata.Tuesday_Timing__c}</td>
+
+                    <td>{WPdata.Wednesday__c}/
+                      {WPdata.Wednesday_Timing__c}</td>
+
+                    <td>{WPdata.Thursday__c}/
+                      {WPdata.Thursday_Timing__c}</td>
+
+                    <td>{WPdata.Friday__c}/
+                      {WPdata.Friday_Timing__c}</td>
+
+                    <td>{WPdata.Saturday__c}/
+                      {WPdata.Saturday_Timing__c}</td>
+
+                    <td>{WPdata.Sunday__c}/
+                      {WPdata.Sunday_Timing__c}</td>
+
+                    <td>{WPdata.Off_Day__c}</td>
+
+                </tr>
+            </tbody> 
+        </table>
+    </div>
+  </div>
+                </div>
+        </template>
+    
+    </lightning-card>
+ 
+
+</template>

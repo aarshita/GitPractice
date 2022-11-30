@@ -1,5 +1,0 @@
-Hello,
-
-I am Learning git!!
-
-Hoping for the good results!

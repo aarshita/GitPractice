@@ -1,0 +1,77 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="runFinalSOQLApex">
+	
+    <aura:attribute name="ObjectList" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInt}"/>
+    <aura:attribute name="ObjName" type="String"/>
+    <aura:attribute name="fields" type="List"/>
+    <aura:attribute name="values" type="List" default="[]"/>
+    <aura:attribute name="selectedList" type="String"/>
+     <aura:attribute name="FieldQuery" type="String" />
+    <aura:attribute name="ObjectApiName" type="String"/>
+	<aura:attribute name="objectName" type="String"/>
+    <aura:attribute name="showData" type="Boolean" default = "false"/>
+     <aura:attribute name="ListOfData" type="List"/>
+
+    
+        <lightning:card title="Using Aura">
+            <div class="slds-p-around_medium">
+       <lightning:combobox name=" Select Object" 
+                            label="Select Object" 
+                            value="In Progress" 
+                            placeholder="Select Object" 
+                            options="{!v.ObjectList}" 
+                            onchange="{!c.handleFieldChange}"/>
+        </div>
+            
+             <div class="slds-p-around_medium">
+        <lightning:dualListbox name="Fields" label= "Choose Fields"  selectedLabel="Selected"   sourceLabel="Available"
+                               fieldLevelHelp="Select your Fields" options="{!v.fields}" value="{!v.values}" 
+                               onchange="{!c.handleSelectChange}" size="7"
+                               />
+                 </div>
+        <div>
+            <div class="slds-p-around_medium">
+            <lightning:button variant="brand" label="Generate Query" title="Brand action" onclick="{!c.genrateFieldQuery}" />
+            </div>
+        </div>
+            
+         <div class = "slds-box">
+        <div class="row slds-box">
+            <lightning:textarea name="QueryArea" value= "{!v.FieldQuery}"/>
+        </div >
+         <div class="slds-p-top_medium">
+        <lightning:button variant="brand" label="Fetch Record" title="Brand action" onclick="{!c.fetchRecord}" />
+         </div>
+    </div> 
+    </lightning:card>
+    
+    <aura:if isTrue="{!v.showData}">
+    <lightning:card>
+         <div class="slds-box">
+                        <br/>
+                        <table class="slds-table slds-table--bordered slds-table--striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col"><span class="slds-truncate">Id</span></th>
+                                    <th scope="col"><span class="slds-truncate">Record Name</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <aura:iteration items="{!v.ListOfData}" var="obj">
+                                    <tr>
+                                        <td>{!obj.Id}</td>
+                                        <td>{!obj.Name}</td>
+                                    </tr>
+                                </aura:iteration>
+                                
+                            </tbody>
+                            
+                        </table>
+                    </div>
+       
+    </lightning:card>
+     </aura:if>
+    
+
+    
+</aura:component>

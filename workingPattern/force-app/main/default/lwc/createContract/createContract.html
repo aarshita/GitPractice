@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Create Contract">
+
+    <lightning-record-edit-form
+    object-api-name={objectapiname}
+    onsuccess = {handleSuccess}
+    density="Compact"
+    >
+    <lightning-input-field field-name ={ContractName}></lightning-input-field>
+    <lightning-input-field field-name ={CountryName}></lightning-input-field>
+    <lightning-input-field field-name ={DeliverAt}></lightning-input-field>
+    <lightning-input-field field-name ={contractType}></lightning-input-field>
+
+    </lightning-record-edit-form>
+</lightning-card>
+</template>
