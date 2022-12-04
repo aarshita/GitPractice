@@ -7,11 +7,11 @@ picture;
 name;
 email;
 phone;
-
+//JSON.parse(JSON.stringify(result.results[0]));
 connectedCallback(){
     getUsersData()
     .then((result) => {
-        this.UserData = JSON.parse(JSON.stringify(result.results[0]));
+        this.UserData =JSON.parse(JSON.stringify(result.results[0]));
         this.picture = this.UserData.picture.large;
         this.name = this.UserData.name.first+ " "+ this.UserData.name.last;
         this.email = this.UserData.email;

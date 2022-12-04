@@ -2,7 +2,7 @@ import { LightningElement , api, track} from 'lwc';
 import showTotalContMethod from '@salesforce/apex/showTotalNumberOfContactsApex.showTotalContMethod';
 
 export default class ShowTotalNumberofContacts extends LightningElement {
-
+// comment added
 @api recordId
 @track RecordCount
 
